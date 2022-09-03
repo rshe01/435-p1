@@ -5,4 +5,4 @@ This program is written in python and works by accepting one prefix input (ie co
 Run the following command before executing the program if necessary:
 1. pip install opencv-python
 
-The program can be executed through the command line in the following format: *python Solution.py [file prefix]*. For example, *python Solution.py com.yelp.android* will produce an input of com.yelp.android.xml to be parsed and an outputed annotated verison of com.yelp.android.png.
+The program can be executed through the command line in the following format: **python Solution.py [file prefix]**. For example, **python Solution.py com.yelp.android** will produce an input of com.yelp.android.xml to be parsed and an outputed annotated verison of com.yelp.android.png.
