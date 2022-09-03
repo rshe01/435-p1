@@ -15,7 +15,12 @@ import os
 
 def main():
     args = sys.argv[1:]
-    absolute_path = os.path.join(os.getcwd(), 'Programming-Assignment-Data',args[0])
+    for arg in args:
+        draw(arg)
+        print("argument",arg)
+
+def draw(arg):
+    absolute_path = os.path.join(os.getcwd(), 'Programming-Assignment-Data',arg)
     image = cv2.imread(absolute_path+'.png')
     tree = ET.parse(absolute_path+'.xml')
     root = tree.getroot()
@@ -34,7 +39,7 @@ def main():
         end_y = int (bound[3])
         cv2.rectangle(image, (start_x, start_y), (end_x,end_y), (13,218,253), 8)
 
-    cv2.imshow(args[0], image)
+    cv2.imshow(arg, image)
         
     cv2.waitKey(0)
     cv2.destroyAllWindows()
