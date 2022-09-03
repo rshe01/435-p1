@@ -27,21 +27,20 @@ def main():
             bounds = [int(s) for s in re.findall(r'\d+', child.get("bounds"))]
             list.append(bounds)
 
-    scale_down = .25
-    height = int(image.shape[0] * scale_down)
-    width = int(image.shape[1] * scale_down)
+    height = int(image.shape[0])
+    width = int(image.shape[1])
     dimension = (width, height)
 
     resized = cv2.resize(image, dimension)
 
     for bound in list:
-        start_x = int (bound[0] * scale_down)
-        start_y = int (bound[1] * scale_down)
-        end_x = int (bound[2] * scale_down)
-        end_y = int (bound[3] * scale_down)
-        cv2.rectangle(resized, (start_x, start_y), (end_x,end_y), (0,255,255), 2)
+        start_x = int (bound[0])
+        start_y = int (bound[1])
+        end_x = int (bound[2])
+        end_y = int (bound[3])
+        cv2.rectangle(resized, (start_x, start_y), (end_x,end_y), (13,218,253), 8)
 
-    cv2.imshow("Annotated", resized)
+    cv2.imshow(args[0], resized)
         
     cv2.waitKey(0)
     cv2.destroyAllWindows()
