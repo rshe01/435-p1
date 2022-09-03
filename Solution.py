@@ -17,7 +17,6 @@ def main():
     args = sys.argv[1:]
     for arg in args:
         draw(arg)
-        print("argument",arg)
 
 def draw(arg):
     absolute_path = os.path.join(os.getcwd(), 'Programming-Assignment-Data',arg)
