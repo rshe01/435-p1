@@ -37,10 +37,10 @@ def draw(png_file, xml_file):
             list.append(bounds)
 
     for bound in list:
-        start_x = int (bound[0])
-        start_y = int (bound[1])
-        end_x = int (bound[2])
-        end_y = int (bound[3])
+        start_x = bound[0]
+        start_y = bound[1]
+        end_x = bound[2]
+        end_y = bound[3]
         cv2.rectangle(image, (start_x, start_y), (end_x,end_y), (13,218,253), 8)
 
     cv2.imshow(png_file, image)
