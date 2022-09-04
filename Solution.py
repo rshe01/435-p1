@@ -13,20 +13,22 @@ def main():
     file_prefix = []
     
     for filename in os.listdir(directory):
-        f = os.path.join(os.getcwd(), directory, filename)
-        if os.path.isfile(f):
-            file_prefix.append(f)
+        f = os.fsdecode(filename)
+        file_prefix.append(f)
 
     for i in range(0, len(file_prefix),2):
         try:
-            draw(file_prefix[i],file_prefix[i+1])
+            draw(directory, file_prefix[i],file_prefix[i+1])
         except:
             print("ERROR: XML parsing issues with",file_prefix[i],"and",file_prefix[i+1])
         
 
-def draw(png_file, xml_file):
-    tree = ET.parse(xml_file)
-    image = cv2.imread(png_file)
+def draw(directory, png_file, xml_file):
+    png_path = os.path.join(os.getcwd(), directory, png_file)
+    xml_path = os.path.join(os.getcwd(), directory, xml_file)
+
+    tree = ET.parse(xml_path)
+    image = cv2.imread(png_path)
     root = tree.getroot()
 
     list = []
@@ -43,7 +45,8 @@ def draw(png_file, xml_file):
         end_y = bound[3]
         cv2.rectangle(image, (start_x, start_y), (end_x,end_y), (13,218,253), 8)
 
-    cv2.imshow(png_file, image)
+    output_folder = 'Output'
+    cv2.imwrite(os.path.join(os.getcwd(), output_folder, png_file), image)
         
     cv2.waitKey(0)
     cv2.destroyAllWindows()
