@@ -12,7 +12,7 @@ Run the following command before executing the program if necessary:
 
 ## Execution
 
-The program can be executed through the command line in the following format: **python Solution.py [file prefixes]**. For example, **python Solution.py com.google.android.apps.transalte com.pandora.android com.yelp.android com.giphy.messenger-2 com.giphy.messenger-1 com.dropbox.android** will produce an input of all our .xml files to be parsed and an outputed each annotated verison of the .png images.
+The program can be executed through the command line in the following format: **python Solution.py [XML/PNG pair folder path]**. For example, **python Solution.py Programming-Assignment-Data** will produce an input of all our .xml files to be parsed and output each annotated verison of the .png images.
 
 ## Design Decisions
 
