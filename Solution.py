@@ -16,7 +16,10 @@ import os
 def main():
     args = sys.argv[1:]
     for arg in args:
-        draw(arg)
+        try:
+            draw(arg)
+        except:
+            print("XML parsing issues with",arg)
 
 def draw(arg):
     absolute_path = os.path.join(os.getcwd(), 'Programming-Assignment-Data',arg)
